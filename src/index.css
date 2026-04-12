@@ -1,0 +1,47 @@
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+  font-family: sans-serif;
+  background-color: #1e1e1e;
+}
+
+/* The scrollable container */
+.app-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+  overflow-y: auto;
+  flex-wrap: wrap;
+  flex-direction: column;
+  background: #b41742;
+}
+
+.floor-toggle {
+  position: sticky;
+  top: 0;
+  padding: 1rem;
+  z-index: 10;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.floor-toggle button {
+  padding: 0.5rem 1rem;
+  background-color: #444;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.floor-toggle button:disabled {
+  background-color: #888;
+  cursor: default;
+}

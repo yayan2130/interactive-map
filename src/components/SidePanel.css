@@ -1,0 +1,78 @@
+.side-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 320px;
+  height: 100%;
+  background-color: #111;
+  color: white;
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+  z-index: 999;
+  overflow-y: auto;
+  padding: 20px;
+  box-shadow: -4px 0 12px rgba(0, 0, 0, 0.4);
+}
+
+.side-panel.visible {
+  transform: translateX(0);
+}
+
+.side-panel .close-btn {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 26px;
+  background: none;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.establishment-logo {
+  max-width: 100%;
+  display: block;
+  margin: auto;
+}
+.establishment-image {
+  max-width: 100%;
+  display: block;
+  margin-bottom: 20px;
+}
+.establishment-video {
+  max-width: 100%;
+  height: 533px;
+  display: block;
+  margin-bottom: 50px;
+}
+
+.establishment-activity {
+  max-width: 100%;
+  display: block;
+  margin: auto;
+}
+
+.description {
+  text-align: justify;
+}
+
+.lang-toggle {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.lang-toggle button {
+  padding: 0.4rem 0.8rem;
+  border: none;
+  background-color: #444;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.lang-toggle button:disabled {
+  background-color: #888;
+  cursor: default;
+}
