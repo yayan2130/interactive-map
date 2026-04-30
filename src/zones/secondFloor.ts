@@ -12,7 +12,9 @@ export const secondFloorZones = [
     width: 16.5,
     height: 12.5,
     activity: "activity/rtv.JPG",
-    video: "https://drive.google.com/file/d/1qOPx9GOLhSUB7QseX6UKTp1vKKzq7Zll/preview",
+    video:
+      "https://drive.google.com/file/d/1qOPx9GOLhSUB7QseX6UKTp1vKKzq7Zll/preview",
+    tags: ["ParentZ", "TeenZ", "ChildZ"],
   },
   {
     id: "noodlefactory",
@@ -27,7 +29,9 @@ export const secondFloorZones = [
     width: 12.9,
     height: 6.5,
     activity: "activity/indomie.JPG",
-    video: "https://drive.google.com/file/d/1ZHf1viKKZQw54ys8Giszi34xfk_o85Va/preview",
+    video:
+      "https://drive.google.com/file/d/1ZHf1viKKZQw54ys8Giszi34xfk_o85Va/preview",
+    tags: ["ParentZ", "TeenZ", "ChildZ"],
   },
   {
     id: "hampersstudio",
@@ -42,7 +46,9 @@ export const secondFloorZones = [
     width: 12.9,
     height: 5,
     activity: "activity/hampers.JPG",
-    video: "https://drive.google.com/file/d/1tZZioL0bgrDGjb7YeQjTciYlq821WWrY/preview",
+    video:
+      "https://drive.google.com/file/d/1tZZioL0bgrDGjb7YeQjTciYlq821WWrY/preview",
+    tags: ["ParentZ", "TeenZ", "ChildZ"],
   },
   {
     id: "aviation",
@@ -57,7 +63,9 @@ export const secondFloorZones = [
     width: 12.9,
     height: 6,
     activity: "activity/aviation.JPG",
-    video: "https://drive.google.com/file/d/1pUvxhrdD-bywehPTbEnzvhnxg0MrgCC_/preview",
+    video:
+      "https://drive.google.com/file/d/1pUvxhrdD-bywehPTbEnzvhnxg0MrgCC_/preview",
+    tags: ["ParentZ", "TeenZ", "ChildZ"],
   },
   {
     id: "sportstudio",
@@ -72,7 +80,9 @@ export const secondFloorZones = [
     width: 8.7,
     height: 7,
     activity: "activity/sportstudio.JPG",
-    video: "https://drive.google.com/file/d/1GGmzqJBXGwY1pkSfIb9PjVYS53ovIg0D/preview",
+    video:
+      "https://drive.google.com/file/d/1GGmzqJBXGwY1pkSfIb9PjVYS53ovIg0D/preview",
+    tags: ["ParentZ", "TeenZ", "ChildZ"],
   },
   {
     id: "biscuitfactory",
@@ -87,6 +97,7 @@ export const secondFloorZones = [
     width: 8.7,
     height: 7.5,
     activity: "activity/Biscuit Factory.JPG",
+    tags: ["ParentZ", "TeenZ", "ChildZ"],
   },
   {
     id: "karaoke",
@@ -101,7 +112,9 @@ export const secondFloorZones = [
     width: 10.5,
     height: 5.8,
     activity: "activity/karaoke.JPG",
-    video: "https://drive.google.com/file/d/10oYGwKd98WB1BC3QbfwQhvJOwNTAjofS/preview",
+    video:
+      "https://drive.google.com/file/d/10oYGwKd98WB1BC3QbfwQhvJOwNTAjofS/preview",
+    tags: ["ParentZ", "TeenZ", "ChildZ"],
   },
   {
     id: "teafactory",
@@ -116,7 +129,9 @@ export const secondFloorZones = [
     width: 10.5,
     height: 8.8,
     activity: "activity/tehpucuk.JPG",
-    video: "https://drive.google.com/file/d/1IaN8oXdm2x7t00W64AaYFkTGATOtV6xi/preview",
+    video:
+      "https://drive.google.com/file/d/1IaN8oXdm2x7t00W64AaYFkTGATOtV6xi/preview",
+    tags: ["ParentZ", "TeenZ", "ChildZ"],
   },
   {
     id: "earthquakesurvival",
@@ -131,6 +146,8 @@ export const secondFloorZones = [
     width: 18.5,
     height: 9.5,
     activity: "activity/earthquake.JPG",
-    video: "https://drive.google.com/file/d/1vgixuq9virFDDrc0KUwI1hA9a5COL2QS/preview",
+    video:
+      "https://drive.google.com/file/d/1vgixuq9virFDDrc0KUwI1hA9a5COL2QS/preview",
+    tags: ["ParentZ", "TeenZ", "ChildZ"],
   },
 ];

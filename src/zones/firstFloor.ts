@@ -16,6 +16,8 @@ export const firstFloorZones = [
     activity: "activity/bank.JPG",
     video:
       "https://drive.google.com/file/d/1MMJBNo-p5RAKPTHAAAkxAzwlt870jVzp/preview",
+    fib: "https://www.fourz.net/Operations/CensusDisplay?p=9463a0eedbbe;Asia/Jakarta;HH:mm;en-US",
+    tags: ["ParentZ", "TeenZ", "ChildZ"],
   },
   {
     id: "miniroastery",
@@ -32,6 +34,7 @@ export const firstFloorZones = [
     activity: "activity/kapalapi.JPG",
     video:
       "https://drive.google.com/file/d/13D2N2v3_IDTYz6LLqZhmNDJC7m1ESFqP/preview",
+    tags: ["ParentZ", "TeenZ", "ChildZ"],
   },
   {
     id: "firestation",
@@ -40,7 +43,7 @@ export const firstFloorZones = [
       id: "Apakah kalian ingin menjadi seorang pahlawan? Kantor Pemadam Kebakaran KidZania sedang mencari petugas pemadam kebakaran yang super pemberani! Kalian akan mendapatkan pelatihan profesional tentang tanggung jawab petugas pemadam kebakaran, latihan fisik, mendapatkan pengetahuan tentang nozel, belajar cara mencegah dan juga mengendalikan kebakaran. Ada kebakaran! Mari bergabung dengan pasukan dan padamkan apinya. Pantang pulang sebelum padam!",
       en: "Do you want to be a hero? Fire Station KidZania is looking for a Zuper brave firefighter! You will get professional training on firefighter responsibilities, physical training, gain knowledge of nozzles, learn how to prevent and control fires. Uh-oh! There's a fire! Let's join the troops and put out the fire!",
     },
-    image: "establishment/ACA Asuransi.png",
+    image: "establishment/LOGO Fire Station-01.png",
     top: 50,
     left: 41.8,
     width: 10,
@@ -48,6 +51,7 @@ export const firstFloorZones = [
     activity: "activity/firestation.JPG",
     video:
       "https://drive.google.com/file/d/1hEt7JR3Q-v3C6kwSXy2_YYeVViNSkCv6/preview ",
+    tags: ["TeenZ", "ChildZ"],
   },
   {
     id: "mainsquare",
@@ -62,6 +66,7 @@ export const firstFloorZones = [
     width: 20.9,
     height: 12.3,
     activity: "activity/mainsquare.JPG",
+    tags: ["ParentZ", "TeenZ", "ChildZ"],
   },
 
   {
@@ -77,6 +82,7 @@ export const firstFloorZones = [
     width: 13,
     height: 7.5,
     activity: "activity/cafetaria.JPG",
+    tags: ["ParentZ", "TeenZ", "ChildZ"],
   },
   {
     id: "culinary",
@@ -93,6 +99,7 @@ export const firstFloorZones = [
     activity: "activity/fibercreme.JPG",
     video:
       "https://drive.google.com/file/d/1riN6z8w4oclD05QC87paMifB8FHIk7B6/preview",
+    tags: ["ParentZ", "TeenZ", "ChildZ"],
   },
   {
     id: "stasiunradio",
@@ -109,20 +116,22 @@ export const firstFloorZones = [
     activity: "activity/radio.JPG",
     video:
       "https://drive.google.com/file/d/1KtbLuot-HHaV0Z73XoD1SuHSbbnHhIve/preview",
+    tags: ["ParentZ", "TeenZ", "ChildZ"],
   },
   {
-    id: "aromatherapy",
-    name: "Aromatherapy Center",
+    id: "commercialstudio",
+    name: "Commercial Studio",
     description: {
       id: "Kalian akan mengetahui prosedur, teknik, dan mesin dalam membuat minyak aromaterapi, kemudian Anda akan mendistribusikannya ke Minimarket.",
       en: "You will know the procedures, techniques, and machinery for making aromatherapy oils, then you will distribute them to Minimarket.",
     },
-    image: "establishment/Kalm & Zen.png",
+    image: "establishment/commercial.png",
     top: 23.5,
     left: 51,
     width: 7,
     height: 8,
     activity: "activity/aromatherapy.JPG",
+    tags: ["ParentZ", "TeenZ", "ChildZ"],
   },
   {
     id: "bkz",
@@ -137,6 +146,7 @@ export const firstFloorZones = [
     width: 10.3,
     height: 4.5,
     activity: "activity/bkz.png",
+    tags: ["ParentZ", "TeenZ", "ChildZ"],
   },
   {
     id: "firstaid",
@@ -153,6 +163,7 @@ export const firstFloorZones = [
     activity: "activity/first aid.JPG",
     video:
       "https://drive.google.com/file/d/1W1MXEtnxqggVvDdBrNERJkcAOFZYuk73/preview",
+    tags: ["ParentZ", "TeenZ", "ChildZ"],
   },
   {
     id: "internetcenter",
@@ -170,6 +181,7 @@ export const firstFloorZones = [
     rotate: true,
     video:
       "https://drive.google.com/file/d/1H19yT2Cu1MrX7NBAczgziEtNkZl7Jh0r/preview",
+    tags: ["ParentZ", "TeenZ", "ChildZ"],
   },
   {
     id: "crimescene",
@@ -185,6 +197,7 @@ export const firstFloorZones = [
     height: 4.5,
     activity: "",
     rotate: false,
+    tags: ["ParentZ", "TeenZ", "ChildZ"],
   },
   {
     id: "waterresearch",
@@ -200,6 +213,7 @@ export const firstFloorZones = [
     height: 7,
     activity: "activity/waterresearch.JPG",
     rotate: false,
+    tags: ["ParentZ", "TeenZ", "ChildZ"],
   },
   //end of daerah tengah
   //start from pizzania going to vizion
@@ -219,6 +233,7 @@ export const firstFloorZones = [
     rotate: false,
     video:
       "https://drive.google.com/file/d/1iw-jk-GEbBsiI7i-nsQ67hStJaMEhIna/preview",
+    tags: ["ParentZ", "TeenZ", "ChildZ"],
   },
   {
     id: "kacamata",
@@ -234,6 +249,7 @@ export const firstFloorZones = [
     height: 4.1,
     activity: "",
     rotate: false,
+    tags: ["ParentZ", "TeenZ", "ChildZ"],
   },
   {
     id: "actingacademy",
@@ -251,6 +267,7 @@ export const firstFloorZones = [
     rotate: false,
     video:
       "https://drive.google.com/file/d/1PnEIoA3nvxaxXZ-DRVrCa-SVMgL434g_/preview",
+    tags: ["ParentZ", "TeenZ", "ChildZ"],
   },
   {
     id: "teather",
@@ -266,6 +283,7 @@ export const firstFloorZones = [
     height: 9,
     activity: "activity/Acting Academy.JPG",
     rotate: false,
+    tags: ["ParentZ", "TeenZ", "ChildZ"],
   },
   {
     id: "goldfashion",
@@ -283,6 +301,7 @@ export const firstFloorZones = [
     rotate: false,
     video:
       "https://drive.google.com/file/d/1J4YomCp1k5gtp3jSt0MT8i548yPe-8KT/preview",
+    tags: ["ParentZ", "TeenZ", "ChildZ"],
   },
   {
     id: "online shop",
@@ -298,6 +317,7 @@ export const firstFloorZones = [
     height: 4.8,
     activity: "",
     rotate: false,
+    tags: ["ParentZ", "TeenZ", "ChildZ"],
   },
   {
     id: "archeologicalsite",
@@ -315,6 +335,7 @@ export const firstFloorZones = [
     rotate: false,
     video:
       "https://drive.google.com/file/d/1_Furg2m7qfANOf3fz4oEf4TlzOkVF4bs/preview",
+    tags: ["ParentZ", "TeenZ", "ChildZ"],
   },
   {
     id: "urbanforest",
@@ -331,6 +352,7 @@ export const firstFloorZones = [
     height: 6,
     activity: "activity/urbanforest.JPG",
     rotate: false,
+    tags: ["ParentZ", "TeenZ", "ChildZ"],
   },
   {
     id: "hospital",
@@ -349,6 +371,7 @@ export const firstFloorZones = [
     rotate: false,
     video:
       "https://drive.google.com/file/d/1ZOieYb1Jy3VVRw1S2oTuYgosaCGWVwdc/preview",
+    tags: ["ParentZ", "TeenZ", "ChildZ"],
   },
   {
     id: "sciencelab",
@@ -367,6 +390,7 @@ export const firstFloorZones = [
     rotate: true,
     video:
       "https://drive.google.com/file/d/1xDGje_onrE9FKpQaNyfg2-XH_sgzPM3C/preview",
+    tags: ["ParentZ", "TeenZ", "ChildZ"],
   },
   {
     id: "citytour",
@@ -385,6 +409,7 @@ export const firstFloorZones = [
     rotate: false,
     video:
       "https://drive.google.com/file/d/1pcRRv51Ur3gpUbQZ1KNJkVcl-GoNakxb/preview",
+    tags: ["ParentZ", "TeenZ", "ChildZ"],
   },
   {
     id: "windowwash",
@@ -401,6 +426,7 @@ export const firstFloorZones = [
     height: 6,
     activity: "activity/Zparkling.JPG",
     rotate: true,
+    tags: ["ParentZ", "TeenZ", "ChildZ"],
   },
   {
     id: "bif",
@@ -410,13 +436,14 @@ export const firstFloorZones = [
       en: "Visitors can put out a fire in a burning hotel building.",
     },
 
-    image: "establishment/ACA Asuransi.png",
+    image: "establishment/LOGO Fire Station-01.png",
     top: 28.5,
     left: 84,
     width: 12,
     height: 9,
     activity: "activity/firestation.JPG",
     rotate: false,
+    tags: ["ParentZ", "TeenZ", "ChildZ"],
   },
   {
     id: "crackerfactory",
@@ -435,6 +462,7 @@ export const firstFloorZones = [
     rotate: false,
     video:
       "https://drive.google.com/file/d/1EDfxs13Lh0bpqcdia1F76b4op8EWEYN_/preview",
+    tags: ["ParentZ", "TeenZ", "ChildZ"],
   },
   {
     id: "csi",
@@ -452,6 +480,7 @@ export const firstFloorZones = [
     rotate: false,
     video:
       "https://drive.google.com/file/d/1z3RZVtg6-gcMtzLm9zWmtXx8_6jcwXOd/preview",
+    tags: ["ParentZ", "TeenZ", "ChildZ"],
   },
   {
     id: "university",
@@ -470,6 +499,7 @@ export const firstFloorZones = [
     rotate: false,
     video:
       "https://drive.google.com/file/d/1sdE6rSIe41zEfpSj84F5EVugChc7ETDf/preview",
+    tags: ["ParentZ", "TeenZ", "ChildZ"],
   },
   {
     id: "drivingsim",
@@ -479,7 +509,7 @@ export const firstFloorZones = [
       en: "Get your own driving license and take it home! But first, you have to pass a driving test on a sophisticated simulator to demonstrate your competence in operating a vehicle. This driving test will help you understand traffic signs in order to make us more orderly in driving. Drive safe, kals!",
     },
 
-    image: "establishment/Asset 42@300x-8.png",
+    image: "establishment/logo kidzania motor@5x-8.png",
     top: 52,
     left: 60,
     width: 10,
@@ -488,6 +518,7 @@ export const firstFloorZones = [
     rotate: false,
     video:
       "https://drive.google.com/file/d/1PXrtKXHDDTnaCSWaRwfbH1mYfWjvmMNO/preview",
+    tags: ["ParentZ", "TeenZ", "ChildZ"],
   },
   {
     id: "steelstructure1",
@@ -506,6 +537,7 @@ export const firstFloorZones = [
     rotate: false,
     video:
       "https://drive.google.com/file/d/17qCQ-uuxEC4jqtMuNABghgtkT4oHDnxT/preview",
+    tags: ["ParentZ", "TeenZ", "ChildZ"],
   },
   {
     id: "steelstructure2",
@@ -524,6 +556,7 @@ export const firstFloorZones = [
     rotate: false,
     video:
       "https://drive.google.com/file/d/17qCQ-uuxEC4jqtMuNABghgtkT4oHDnxT/preview",
+    tags: ["ParentZ", "TeenZ", "ChildZ"],
   },
   {
     id: "earlystimulation",
@@ -540,6 +573,7 @@ export const firstFloorZones = [
     height: 6,
     activity: "activity/alamii.JPG",
     rotate: false,
+    tags: ["ParentZ", "TeenZ", "ChildZ"],
   },
   {
     id: "vitasdinner",
@@ -556,6 +590,7 @@ export const firstFloorZones = [
     height: 4,
     activity: "activity/vitasdinner.JPG",
     rotate: false,
+    tags: ["ParentZ", "TeenZ", "ChildZ"],
   },
   {
     id: "openstage",
@@ -572,6 +607,7 @@ export const firstFloorZones = [
     height: 9,
     activity: "activity/chikaspotlight.JPG",
     rotate: false,
+    tags: ["ParentZ", "TeenZ", "ChildZ"],
   },
   {
     id: "drivingtrack",
@@ -581,13 +617,14 @@ export const firstFloorZones = [
       en: "Put on your seatbelt! You will drive on a driving track and learn the road sign. Drive safely, kals!",
     },
 
-    image: "establishment/Asset 42@300x-8.png",
+    image: "establishment/logo kidzania motor@5x-8.png",
     top: 57,
     left: 77.8,
     width: 10.6,
     height: 11,
     activity: "activity/drivingtrack2.JPG",
     rotate: false,
+    tags: ["ParentZ", "TeenZ", "ChildZ"],
   },
   {
     id: "minimarket",
@@ -605,6 +642,7 @@ export const firstFloorZones = [
     rotate: false,
     video:
       "https://drive.google.com/file/d/1cyP-OKpXimmfN7Xp9Ci20k-8CD83G0kC/preview",
+    tags: ["ParentZ", "TeenZ", "ChildZ"],
   },
   {
     id: "laundry",
@@ -623,6 +661,7 @@ export const firstFloorZones = [
     rotate: false,
     video:
       "https://drive.google.com/file/d/11XOx7PXpxrn6XBxdQsYPARtuqqj5J2nm/preview",
+    tags: ["ParentZ", "TeenZ", "ChildZ"],
   },
   {
     id: "deptstore",
@@ -639,6 +678,7 @@ export const firstFloorZones = [
     height: 8.5,
     activity: "activity/deptstore.JPG",
     rotate: false,
+    tags: ["ParentZ", "TeenZ", "ChildZ"],
   },
   {
     id: "kidzaniashop",
@@ -654,6 +694,7 @@ export const firstFloorZones = [
     height: 7,
     activity: "activity/kzshop.JPG",
     rotate: false,
+    tags: ["ParentZ", "TeenZ", "ChildZ"],
   },
   {
     id: "mediapos",
@@ -670,6 +711,7 @@ export const firstFloorZones = [
     height: 5,
     activity: "activity/mediapos.JPG",
     rotate: false,
+    tags: ["ParentZ", "TeenZ", "ChildZ"],
   },
   {
     id: "imigrasi",
@@ -686,6 +728,7 @@ export const firstFloorZones = [
     height: 8.3,
     activity: "",
     rotate: false,
+    tags: ["ParentZ", "TeenZ", "ChildZ"],
   },
   {
     id: "Airport",
@@ -701,5 +744,6 @@ export const firstFloorZones = [
     height: 15,
     activity: "activity/airport.JPG",
     rotate: false,
+    tags: ["ParentZ", "TeenZ", "ChildZ"],
   },
 ];

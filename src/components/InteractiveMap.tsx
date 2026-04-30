@@ -8,6 +8,7 @@ interface Props {
   onZoneClick: (zone: Zone) => void;
   scale?: number;
   lang?: "id" | "en";
+  highlightedZoneIds?: string[];
 }
 
 const InteractiveMap: React.FC<Props> = ({
@@ -16,6 +17,7 @@ const InteractiveMap: React.FC<Props> = ({
   mapImage,
   onZoneClick,
   lang,
+  highlightedZoneIds,
 }) => {
   return (
     <div
@@ -31,7 +33,7 @@ const InteractiveMap: React.FC<Props> = ({
       {zones.map((zone) => (
         <button
           key={zone.id}
-          className="zone"
+          className={`zone ${highlightedZoneIds?.includes(zone.id) ? "highlighted" : ""}`}
           style={{
             top: `${zone.top}%`,
             left: `${zone.left}%`,

@@ -13,4 +13,6 @@ export interface Zone {
     en: string;
   };
   video?: string;
+  fib?: string;
+  tags?: string[];
 }
