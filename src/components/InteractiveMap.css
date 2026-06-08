@@ -22,6 +22,49 @@
   background-color: rgba(255, 255, 255, 0);
   border: none;
   padding: 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.cycle-badge {
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  padding: 1px 6px;
+  border-radius: 999px;
+  background: #b5006b;
+  color: #fff;
+  font-weight: 700;
+  line-height: 1.4;
+  white-space: nowrap;
+  pointer-events: none;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+  z-index: 2;
+
+  @media screen and (max-width: 2000px) {
+    font-size: 9px;
+  }
+  @media screen and (max-width: 1000px) {
+    font-size: 7px;
+  }
+  @media screen and (max-width: 600px) {
+    font-size: 5px;
+    padding: 0 4px;
+  }
+}
+
+.cycle-badge.cycle-now {
+  background: #0a66ff;
+}
+
+.cycle-count {
+  opacity: 0.85;
+  font-weight: 600;
 }
 
 .zone-image {

@@ -1,6 +1,6 @@
-import { act } from "react";
+import { Zone } from "../types";
 
-export const firstFloorZones = [
+export const firstFloorZones: Zone[] = [
   {
     id: "bank",
     name: "Bank of KidZania",
@@ -16,8 +16,9 @@ export const firstFloorZones = [
     activity: "activity/bank.JPG",
     video:
       "https://drive.google.com/file/d/1MMJBNo-p5RAKPTHAAAkxAzwlt870jVzp/preview",
-    fib: "https://www.fourz.net/Operations/CensusDisplay?p=9463a0eedbbe;Asia/Jakarta;HH:mm;en-US",
+    videoPortrait: true,
     tags: ["ParentZ", "TeenZ", "ChildZ"],
+    fib: "https://www.fourz.net/Operations/CensusDisplay?p=9463a0eedbbe;Asia/Jakarta;HH:mm;en-US",
   },
   {
     id: "miniroastery",
@@ -34,7 +35,9 @@ export const firstFloorZones = [
     activity: "activity/kapalapi.JPG",
     video:
       "https://drive.google.com/file/d/13D2N2v3_IDTYz6LLqZhmNDJC7m1ESFqP/preview",
+    videoPortrait: true,
     tags: ["ParentZ", "TeenZ", "ChildZ"],
+    fib: "https://www.fourz.net/Operations/CensusDisplay?p=c25fbc6aa4b5;Asia/Jakarta;HH:mm;en-US",
   },
   {
     id: "firestation",
@@ -51,7 +54,9 @@ export const firstFloorZones = [
     activity: "activity/firestation.JPG",
     video:
       "https://drive.google.com/file/d/1hEt7JR3Q-v3C6kwSXy2_YYeVViNSkCv6/preview ",
+    videoPortrait: true,
     tags: ["TeenZ", "ChildZ"],
+    fib: "https://www.fourz.net/Operations/CensusDisplay?p=9536a49bf4d8;Asia/Jakarta;HH:mm;en-US",
   },
   {
     id: "mainsquare",
@@ -99,7 +104,9 @@ export const firstFloorZones = [
     activity: "activity/fibercreme.JPG",
     video:
       "https://drive.google.com/file/d/1riN6z8w4oclD05QC87paMifB8FHIk7B6/preview",
+    videoPortrait: true,
     tags: ["ParentZ", "TeenZ", "ChildZ"],
+    fib: "https://www.fourz.net/Operations/CensusDisplay?p=64624f95c04b;Asia/Jakarta;HH:mm;en-US",
   },
   {
     id: "stasiunradio",
@@ -116,13 +123,15 @@ export const firstFloorZones = [
     activity: "activity/radio.JPG",
     video:
       "https://drive.google.com/file/d/1KtbLuot-HHaV0Z73XoD1SuHSbbnHhIve/preview",
+    videoPortrait: true,
     tags: ["ParentZ", "TeenZ", "ChildZ"],
+    fib: "https://www.fourz.net/Operations/CensusDisplay?p=7ecb8aa15f42;Asia/Jakarta;HH:mm;en-US",
   },
   {
     id: "commercialstudio",
     name: "Commercial Studio",
     description: {
-      id: "Kalian akan mengetahui prosedur, teknik, dan mesin dalam membuat minyak aromaterapi, kemudian Anda akan mendistribusikannya ke Minimarket.",
+      id: "Selalu up-to-date dengan tren masa kini! Buat konten menarik tentang yang informatif tentang berbagai macam topik. Kalian bisa menjadi pembawa acara yang mengulas sebuah produk ataupun bisa juga menjadi seorang kameramen. Kool, kan?",
       en: "You will know the procedures, techniques, and machinery for making aromatherapy oils, then you will distribute them to Minimarket.",
     },
     image: "establishment/commercial.png",
@@ -130,8 +139,9 @@ export const firstFloorZones = [
     left: 51,
     width: 7,
     height: 8,
-    activity: "activity/aromatherapy.JPG",
+    activity: "activity/commer.png",
     tags: ["ParentZ", "TeenZ", "ChildZ"],
+    fib: "https://www.fourz.net/Operations/CensusDisplay?p=c86f8a77d9d7;Asia/Jakarta;HH:mm;en-US",
   },
   {
     id: "bkz",
@@ -146,7 +156,7 @@ export const firstFloorZones = [
     width: 10.3,
     height: 4.5,
     activity: "activity/bkz.png",
-    tags: ["ParentZ", "TeenZ", "ChildZ"],
+    fib: "https://www.fourz.net/Operations/CensusDisplay?p=6b382bc92662;Asia/Jakarta;HH:mm;en-US",
   },
   {
     id: "firstaid",
@@ -163,7 +173,9 @@ export const firstFloorZones = [
     activity: "activity/first aid.JPG",
     video:
       "https://drive.google.com/file/d/1W1MXEtnxqggVvDdBrNERJkcAOFZYuk73/preview",
+    videoPortrait: true,
     tags: ["ParentZ", "TeenZ", "ChildZ"],
+    fib: "https://www.fourz.net/Operations/CensusDisplay?p=47611cd1b011;Asia/Jakarta;HH:mm;en-US",
   },
   {
     id: "internetcenter",
@@ -181,7 +193,9 @@ export const firstFloorZones = [
     rotate: true,
     video:
       "https://drive.google.com/file/d/1H19yT2Cu1MrX7NBAczgziEtNkZl7Jh0r/preview",
-    tags: ["ParentZ", "TeenZ", "ChildZ"],
+    videoPortrait: true,
+    tags: ["TeenZ", "ChildZ"],
+    fib: "https://www.fourz.net/Operations/CensusDisplay?p=4a3701528fc2;Asia/Jakarta;HH:mm;en-US",
   },
   {
     id: "crimescene",
@@ -197,7 +211,7 @@ export const firstFloorZones = [
     height: 4.5,
     activity: "",
     rotate: false,
-    tags: ["ParentZ", "TeenZ", "ChildZ"],
+    fib: "https://www.fourz.net/Operations/CensusDisplay?p=77296c7252cb;Asia/Jakarta;HH:mm;en-US",
   },
   {
     id: "waterresearch",
@@ -214,6 +228,7 @@ export const firstFloorZones = [
     activity: "activity/waterresearch.JPG",
     rotate: false,
     tags: ["ParentZ", "TeenZ", "ChildZ"],
+    fib: "https://www.fourz.net/Operations/CensusDisplay?p=fe9923d76f45;Asia/Jakarta;HH:mm;en-US",
   },
   //end of daerah tengah
   //start from pizzania going to vizion
@@ -233,7 +248,9 @@ export const firstFloorZones = [
     rotate: false,
     video:
       "https://drive.google.com/file/d/1iw-jk-GEbBsiI7i-nsQ67hStJaMEhIna/preview",
+    videoPortrait: true,
     tags: ["ParentZ", "TeenZ", "ChildZ"],
+    fib: "https://www.fourz.net/Operations/CensusDisplay?p=4f173e841927;Asia/Jakarta;HH:mm;en-US",
   },
   {
     id: "kacamata",
@@ -250,6 +267,7 @@ export const firstFloorZones = [
     activity: "",
     rotate: false,
     tags: ["ParentZ", "TeenZ", "ChildZ"],
+    fib: "https://www.fourz.net/Operations/CensusDisplay?p=abfe8c4a7f47;Asia/Jakarta;HH:mm;en-US",
   },
   {
     id: "actingacademy",
@@ -267,10 +285,12 @@ export const firstFloorZones = [
     rotate: false,
     video:
       "https://drive.google.com/file/d/1PnEIoA3nvxaxXZ-DRVrCa-SVMgL434g_/preview",
+    videoPortrait: true,
     tags: ["ParentZ", "TeenZ", "ChildZ"],
+    fib: "https://www.fourz.net/Operations/CensusDisplay?p=a69077146b50;Asia/Jakarta;HH:mm;en-US",
   },
   {
-    id: "teather",
+    id: "Theater",
     name: "Metropolitan Theater",
     description: {
       id: "Salah satu tempat paling seru di KidZania menanti kalian! Kalian akan sangat terhibur oleh berbagai pertujukan spektakuler. Jadi, duduklah, santai, dan nikmati pertunjukannya! Jika kalian beruntung, kalian juga bisa bertemu dan menyapa RightZKeepers KidZania!",
@@ -284,10 +304,11 @@ export const firstFloorZones = [
     activity: "activity/Acting Academy.JPG",
     rotate: false,
     tags: ["ParentZ", "TeenZ", "ChildZ"],
+    fib: "https://www.fourz.net/Operations/CensusDisplay?p=8d091e2dd8ea;Asia/Jakarta;HH:mm;en-US",
   },
   {
-    id: "goldfashion",
-    name: "UBS Gold Fashion",
+    id: "fashionstudio",
+    name: "UBS Fashion Studio",
     description: {
       id: "Kalian ingin tahu bagaimana rasanya menjadi Perancang Perhiasan? Ini adalah tempat yang sempurna untuk kalian! Ekspresikan kreativitas kalian dengan merangkai manik-manik indah lalu tunjukkan pada dunia. Kalian juga bisa menjadi seorang Model untuk belajar berjalan seperti model profesional dan berpose. Bagian yang paling kool, adalah Anda akan melakukan Fashion Show di Teater.",
       en: "Do you want to feel what it's like to be a Jewelry Designer? This is the perfect place for you! Express your creativity by stringing beautiful beads then show it to the world. You can also be a Runway Model to learn to walk like a professional model and strike a pose. The koolest part, is you will be performing a Fashion Show at the Theater.",
@@ -301,10 +322,12 @@ export const firstFloorZones = [
     rotate: false,
     video:
       "https://drive.google.com/file/d/1J4YomCp1k5gtp3jSt0MT8i548yPe-8KT/preview",
+    videoPortrait: true,
     tags: ["ParentZ", "TeenZ", "ChildZ"],
+    fib: "https://www.fourz.net/Operations/CensusDisplay?p=974c10743bc7;Asia/Jakarta;HH:mm;en-US",
   },
   {
-    id: "online shop",
+    id: "onlineshop",
     name: "eaZy Shop",
     description: {
       id: "Ada banyak keuntungan yang didapatkan ketika berjualan lewat platform digital. Mari kita pelajari bagaimana cara mempromosikan produk dalam live! Kamu bisa menjadi seorang Penyiar Live Shopping yang asyik, mengulas dan mendemonstrasikan produk, serta mempromosikannya di platform digital. Kamu juga bisa belajar mengatur siaran dan menjadi seorang Operator Live Shopping yang profesional!",
@@ -318,6 +341,7 @@ export const firstFloorZones = [
     activity: "",
     rotate: false,
     tags: ["ParentZ", "TeenZ", "ChildZ"],
+    fib: "https://www.fourz.net/Operations/CensusDisplay?p=463780b1e930;Asia/Jakarta;HH:mm;en-US",
   },
   {
     id: "archeologicalsite",
@@ -335,7 +359,9 @@ export const firstFloorZones = [
     rotate: false,
     video:
       "https://drive.google.com/file/d/1_Furg2m7qfANOf3fz4oEf4TlzOkVF4bs/preview",
+    videoPortrait: true,
     tags: ["ParentZ", "TeenZ", "ChildZ"],
+    fib: "https://www.fourz.net/Operations/CensusDisplay?p=8b76de440e29;Asia/Jakarta;HH:mm;en-US",
   },
   {
     id: "urbanforest",
@@ -352,7 +378,8 @@ export const firstFloorZones = [
     height: 6,
     activity: "activity/urbanforest.JPG",
     rotate: false,
-    tags: ["ParentZ", "TeenZ", "ChildZ"],
+    tags: ["TeenZ", "ChildZ"],
+    fib: "https://www.fourz.net/Operations/CensusDisplay?p=5e4c30153c75;Asia/Jakarta;HH:mm;en-US",
   },
   {
     id: "hospital",
@@ -371,7 +398,9 @@ export const firstFloorZones = [
     rotate: false,
     video:
       "https://drive.google.com/file/d/1ZOieYb1Jy3VVRw1S2oTuYgosaCGWVwdc/preview",
-    tags: ["ParentZ", "TeenZ", "ChildZ"],
+    videoPortrait: true,
+    tags: ["TeenZ", "ChildZ"],
+    fib: "https://www.fourz.net/Operations/CensusDisplay?p=523d1935ae44;Asia/Jakarta;HH:mm;en-US",
   },
   {
     id: "sciencelab",
@@ -390,7 +419,9 @@ export const firstFloorZones = [
     rotate: true,
     video:
       "https://drive.google.com/file/d/1xDGje_onrE9FKpQaNyfg2-XH_sgzPM3C/preview",
-    tags: ["ParentZ", "TeenZ", "ChildZ"],
+    videoPortrait: true,
+    tags: ["TeenZ", "ChildZ"],
+    fib: "https://www.fourz.net/Operations/CensusDisplay?p=d596af9487b2;Asia/Jakarta;HH:mm;en-US",
   },
   {
     id: "citytour",
@@ -409,7 +440,9 @@ export const firstFloorZones = [
     rotate: false,
     video:
       "https://drive.google.com/file/d/1pcRRv51Ur3gpUbQZ1KNJkVcl-GoNakxb/preview",
+    videoPortrait: true,
     tags: ["ParentZ", "TeenZ", "ChildZ"],
+    fib: "https://www.fourz.net/Operations/CensusDisplay?p=33fae8e30776;Asia/Jakarta;HH:mm;en-US",
   },
   {
     id: "windowwash",
@@ -426,7 +459,8 @@ export const firstFloorZones = [
     height: 6,
     activity: "activity/Zparkling.JPG",
     rotate: true,
-    tags: ["ParentZ", "TeenZ", "ChildZ"],
+    tags: ["TeenZ", "ChildZ"],
+    fib: "https://www.fourz.net/Operations/CensusDisplay?p=a52d697e9be7;Asia/Jakarta;HH:mm;en-US",
   },
   {
     id: "bif",
@@ -443,7 +477,7 @@ export const firstFloorZones = [
     height: 9,
     activity: "activity/firestation.JPG",
     rotate: false,
-    tags: ["ParentZ", "TeenZ", "ChildZ"],
+    fib: "https://www.fourz.net/Operations/CensusDisplay?p=9536a49bf4d8;Asia/Jakarta;HH:mm;en-US",
   },
   {
     id: "crackerfactory",
@@ -462,7 +496,9 @@ export const firstFloorZones = [
     rotate: false,
     video:
       "https://drive.google.com/file/d/1EDfxs13Lh0bpqcdia1F76b4op8EWEYN_/preview",
+    videoPortrait: true,
     tags: ["ParentZ", "TeenZ", "ChildZ"],
+    fib: "https://www.fourz.net/Operations/CensusDisplay?p=bbe58410e21c;Asia/Jakarta;HH:mm;en-US",
   },
   {
     id: "csi",
@@ -480,7 +516,9 @@ export const firstFloorZones = [
     rotate: false,
     video:
       "https://drive.google.com/file/d/1z3RZVtg6-gcMtzLm9zWmtXx8_6jcwXOd/preview",
-    tags: ["ParentZ", "TeenZ", "ChildZ"],
+    videoPortrait: true,
+    tags: ["TeenZ", "ChildZ"],
+    fib: "https://www.fourz.net/Operations/CensusDisplay?p=9bd0e47adcc6;Asia/Jakarta;HH:mm;en-US",
   },
   {
     id: "university",
@@ -499,7 +537,8 @@ export const firstFloorZones = [
     rotate: false,
     video:
       "https://drive.google.com/file/d/1sdE6rSIe41zEfpSj84F5EVugChc7ETDf/preview",
-    tags: ["ParentZ", "TeenZ", "ChildZ"],
+    tags: ["TeenZ", "ChildZ"],
+    fib: "https://www.fourz.net/Operations/CensusDisplay?p=e0dc811900d8;Asia/Jakarta;HH:mm;en-US",
   },
   {
     id: "drivingsim",
@@ -518,7 +557,9 @@ export const firstFloorZones = [
     rotate: false,
     video:
       "https://drive.google.com/file/d/1PXrtKXHDDTnaCSWaRwfbH1mYfWjvmMNO/preview",
+    videoPortrait: true,
     tags: ["ParentZ", "TeenZ", "ChildZ"],
+    fib: "https://www.fourz.net/Operations/CensusDisplay?p=0563902d1713;Asia/Jakarta;HH:mm;en-US",
   },
   {
     id: "steelstructure1",
@@ -537,7 +578,9 @@ export const firstFloorZones = [
     rotate: false,
     video:
       "https://drive.google.com/file/d/17qCQ-uuxEC4jqtMuNABghgtkT4oHDnxT/preview",
-    tags: ["ParentZ", "TeenZ", "ChildZ"],
+    videoPortrait: true,
+    tags: ["ParentZ", "TeenZ", "ChildZ", "Toddler"],
+    fib: "https://www.fourz.net/Operations/CensusDisplay?p=85e69cde4740;Asia/Jakarta;HH:mm;en-US",
   },
   {
     id: "steelstructure2",
@@ -556,7 +599,9 @@ export const firstFloorZones = [
     rotate: false,
     video:
       "https://drive.google.com/file/d/17qCQ-uuxEC4jqtMuNABghgtkT4oHDnxT/preview",
-    tags: ["ParentZ", "TeenZ", "ChildZ"],
+    videoPortrait: true,
+    tags: ["ParentZ", "TeenZ", "ChildZ", "Toddler"],
+    fib: "https://www.fourz.net/Operations/CensusDisplay?p=85e69cde4740;Asia/Jakarta;HH:mm;en-US",
   },
   {
     id: "earlystimulation",
@@ -573,7 +618,7 @@ export const firstFloorZones = [
     height: 6,
     activity: "activity/alamii.JPG",
     rotate: false,
-    tags: ["ParentZ", "TeenZ", "ChildZ"],
+    tags: ["ParentZ", "Toddler"],
   },
   {
     id: "vitasdinner",
@@ -590,7 +635,7 @@ export const firstFloorZones = [
     height: 4,
     activity: "activity/vitasdinner.JPG",
     rotate: false,
-    tags: ["ParentZ", "TeenZ", "ChildZ"],
+    tags: ["ParentZ", "Toddler"],
   },
   {
     id: "openstage",
@@ -607,7 +652,7 @@ export const firstFloorZones = [
     height: 9,
     activity: "activity/chikaspotlight.JPG",
     rotate: false,
-    tags: ["ParentZ", "TeenZ", "ChildZ"],
+    tags: ["ParentZ", "Toddler"],
   },
   {
     id: "drivingtrack",
@@ -624,7 +669,8 @@ export const firstFloorZones = [
     height: 11,
     activity: "activity/drivingtrack2.JPG",
     rotate: false,
-    tags: ["ParentZ", "TeenZ", "ChildZ"],
+    tags: ["ParentZ", "Toddler"],
+    fib: "https://www.fourz.net/Operations/CensusDisplay?p=b682785739d3;Asia/Jakarta;HH:mm;en-US",
   },
   {
     id: "minimarket",
@@ -642,7 +688,9 @@ export const firstFloorZones = [
     rotate: false,
     video:
       "https://drive.google.com/file/d/1cyP-OKpXimmfN7Xp9Ci20k-8CD83G0kC/preview",
-    tags: ["ParentZ", "TeenZ", "ChildZ"],
+    videoPortrait: true,
+    tags: ["TeenZ", "ChildZ"],
+    fib: "https://www.fourz.net/Operations/CensusDisplay?p=c75e8a8c7c51;Asia/Jakarta;HH:mm;en-US",
   },
   {
     id: "laundry",
@@ -661,7 +709,9 @@ export const firstFloorZones = [
     rotate: false,
     video:
       "https://drive.google.com/file/d/11XOx7PXpxrn6XBxdQsYPARtuqqj5J2nm/preview",
-    tags: ["ParentZ", "TeenZ", "ChildZ"],
+    videoPortrait: true,
+    tags: ["TeenZ", "ChildZ"],
+    fib: "https://www.fourz.net/Operations/CensusDisplay?p=882c091cea39;Asia/Jakarta;HH:mm;en-US",
   },
   {
     id: "deptstore",
@@ -678,7 +728,8 @@ export const firstFloorZones = [
     height: 8.5,
     activity: "activity/deptstore.JPG",
     rotate: false,
-    tags: ["ParentZ", "TeenZ", "ChildZ"],
+    tags: ["TeenZ", "ChildZ"],
+    fib: "https://www.fourz.net/Operations/CensusDisplay?p=ebfe2e668c2d;Asia/Jakarta;HH:mm;en-US",
   },
   {
     id: "kidzaniashop",
@@ -694,7 +745,6 @@ export const firstFloorZones = [
     height: 7,
     activity: "activity/kzshop.JPG",
     rotate: false,
-    tags: ["ParentZ", "TeenZ", "ChildZ"],
   },
   {
     id: "mediapos",
@@ -711,7 +761,7 @@ export const firstFloorZones = [
     height: 5,
     activity: "activity/mediapos.JPG",
     rotate: false,
-    tags: ["ParentZ", "TeenZ", "ChildZ"],
+    fib: "https://www.fourz.net/Operations/CensusDisplay?p=ef3a883c20e2;Asia/Jakarta;HH:mm;en-US",
   },
   {
     id: "imigrasi",
@@ -728,7 +778,6 @@ export const firstFloorZones = [
     height: 8.3,
     activity: "",
     rotate: false,
-    tags: ["ParentZ", "TeenZ", "ChildZ"],
   },
   {
     id: "Airport",
@@ -744,6 +793,5 @@ export const firstFloorZones = [
     height: 15,
     activity: "activity/airport.JPG",
     rotate: false,
-    tags: ["ParentZ", "TeenZ", "ChildZ"],
   },
 ];

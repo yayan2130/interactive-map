@@ -12,6 +12,15 @@ dist
 dist-ssr
 *.local
 
+# Secrets / credentials (never commit)
+.env
+.env.*
+!.env.example
+scraper/credentials.json
+
+# Generated census snapshot (refreshed by the poller)
+public/census.json
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

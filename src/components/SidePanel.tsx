@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import "./SidePanel.css";
-import { Zone } from "../types";
+import { EstablishmentCensus, Zone } from "../types";
 
 interface Props {
   zone: Zone | null;
+  census?: EstablishmentCensus | null;
   onClose: () => void;
 }
 
-const SidePanel: React.FC<Props> = ({ zone, onClose }) => {
+const SidePanel: React.FC<Props> = ({ zone, census, onClose }) => {
   const [lang, setLang] = useState<"id" | "en">("id");
   const [infoOpen, setInfoOpen] = useState(false);
   const infoUrl = zone?.fib ?? "";
@@ -55,6 +56,31 @@ const SidePanel: React.FC<Props> = ({ zone, onClose }) => {
           </button>
         </div>
 
+        {census && census.activities.length > 0 && (
+          <div className="section-block">
+            <h3>Next cycles</h3>
+            <ul className="cycle-list">
+              {census.activities.map((activity, index) => (
+                <li
+                  key={activity.activityId ?? index}
+                  className="cycle-row"
+                >
+                  <span className="cycle-activity">
+                    {activity.name ?? "Activity"}
+                  </span>
+                  <span
+                    className={`cycle-pill ${
+                      activity.display === "Now" ? "cycle-now" : ""
+                    }`}
+                  >
+                    {activity.display}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+
         {zone.image && (
           <div className="media-card">
             <img
@@ -94,11 +120,17 @@ const SidePanel: React.FC<Props> = ({ zone, onClose }) => {
               />
             )}
             {zone.video && (
-              <div className="video-container">
+              <div
+                className={`video-container${
+                  zone.videoPortrait ? " portrait" : ""
+                }`}
+              >
                 <iframe
                   className="establishment-video"
                   src={zone.video}
                   title={`${zone.name} video`}
+                  allow="autoplay; fullscreen"
+                  sandbox="allow-scripts allow-same-origin allow-presentation"
                   allowFullScreen
                   loading="lazy"
                 />

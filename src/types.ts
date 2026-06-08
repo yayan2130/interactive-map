@@ -1,3 +1,19 @@
+export interface ActivityCycle {
+  activityId: string | null;
+  name: string | null;
+  nextCycleStartsAt: string | null;
+  minutesForTheNextCycle: number | null;
+  display: string; // "Now" or "10 min"
+}
+
+export interface EstablishmentCensus {
+  zoneId?: string;
+  activities: ActivityCycle[];
+}
+
+// Keyed by establishmentId (the `p=` value from a zone's fib URL)
+export type CensusMap = Record<string, EstablishmentCensus>;
+
 export interface Zone {
   id: string;
   name?: string;
@@ -13,6 +29,8 @@ export interface Zone {
     en: string;
   };
   video?: string;
+  videoPortrait?: boolean;
   fib?: string;
+  establishment_id?: string;
   tags?: string[];
 }

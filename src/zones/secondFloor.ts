@@ -1,4 +1,6 @@
-export const secondFloorZones = [
+import { Zone } from "../types";
+
+export const secondFloorZones: Zone[] = [
   {
     id: "tvstation",
     name: "TV Station",
@@ -14,7 +16,9 @@ export const secondFloorZones = [
     activity: "activity/rtv.JPG",
     video:
       "https://drive.google.com/file/d/1qOPx9GOLhSUB7QseX6UKTp1vKKzq7Zll/preview",
+    videoPortrait: true,
     tags: ["ParentZ", "TeenZ", "ChildZ"],
+    fib: "https://www.fourz.net/Operations/CensusDisplay?p=abba8e7f167c;Asia/Jakarta;HH:mm;en-US",
   },
   {
     id: "noodlefactory",
@@ -31,7 +35,9 @@ export const secondFloorZones = [
     activity: "activity/indomie.JPG",
     video:
       "https://drive.google.com/file/d/1ZHf1viKKZQw54ys8Giszi34xfk_o85Va/preview",
+    videoPortrait: true,
     tags: ["ParentZ", "TeenZ", "ChildZ"],
+    fib: "https://www.fourz.net/Operations/CensusDisplay?p=9f9946408153;Asia/Jakarta;HH:mm;en-US",
   },
   {
     id: "hampersstudio",
@@ -48,7 +54,9 @@ export const secondFloorZones = [
     activity: "activity/hampers.JPG",
     video:
       "https://drive.google.com/file/d/1tZZioL0bgrDGjb7YeQjTciYlq821WWrY/preview",
-    tags: ["ParentZ", "TeenZ", "ChildZ"],
+    videoPortrait: true,
+    tags: ["TeenZ", "ChildZ"],
+    fib: "https://www.fourz.net/Operations/CensusDisplay?p=b2751bb6dedf;Asia/Jakarta;HH:mm;en-US",
   },
   {
     id: "aviation",
@@ -65,7 +73,9 @@ export const secondFloorZones = [
     activity: "activity/aviation.JPG",
     video:
       "https://drive.google.com/file/d/1pUvxhrdD-bywehPTbEnzvhnxg0MrgCC_/preview",
-    tags: ["ParentZ", "TeenZ", "ChildZ"],
+    videoPortrait: true,
+    tags: ["TeenZ", "ChildZ"],
+    fib: "https://www.fourz.net/Operations/CensusDisplay?p=b5b95143e63b;Asia/Jakarta;HH:mm;en-US",
   },
   {
     id: "sportstudio",
@@ -82,7 +92,9 @@ export const secondFloorZones = [
     activity: "activity/sportstudio.JPG",
     video:
       "https://drive.google.com/file/d/1GGmzqJBXGwY1pkSfIb9PjVYS53ovIg0D/preview",
-    tags: ["ParentZ", "TeenZ", "ChildZ"],
+    videoPortrait: true,
+    tags: ["TeenZ", "ChildZ"],
+    fib: "https://www.fourz.net/Operations/CensusDisplay?p=5a4064545dcf;Asia/Jakarta;HH:mm;en-US",
   },
   {
     id: "biscuitfactory",
@@ -97,6 +109,7 @@ export const secondFloorZones = [
     width: 8.7,
     height: 7.5,
     activity: "activity/Biscuit Factory.JPG",
+    fib: "https://www.fourz.net/Operations/CensusDisplay?p=3a00bb726b4d;Asia/Jakarta;HH:mm;en-US",
     tags: ["ParentZ", "TeenZ", "ChildZ"],
   },
   {
@@ -114,7 +127,9 @@ export const secondFloorZones = [
     activity: "activity/karaoke.JPG",
     video:
       "https://drive.google.com/file/d/10oYGwKd98WB1BC3QbfwQhvJOwNTAjofS/preview",
+    videoPortrait: true,
     tags: ["ParentZ", "TeenZ", "ChildZ"],
+    fib: "https://www.fourz.net/Operations/CensusDisplay?p=4d0512116d38;Asia/Jakarta;HH:mm;en-US",
   },
   {
     id: "teafactory",
@@ -131,7 +146,9 @@ export const secondFloorZones = [
     activity: "activity/tehpucuk.JPG",
     video:
       "https://drive.google.com/file/d/1IaN8oXdm2x7t00W64AaYFkTGATOtV6xi/preview",
-    tags: ["ParentZ", "TeenZ", "ChildZ"],
+    videoPortrait: true,
+    tags: ["TeenZ", "ChildZ"],
+    fib: "https://www.fourz.net/Operations/CensusDisplay?p=37eebaddf56e;Asia/Jakarta;HH:mm;en-US",
   },
   {
     id: "earthquakesurvival",
@@ -148,6 +165,8 @@ export const secondFloorZones = [
     activity: "activity/earthquake.JPG",
     video:
       "https://drive.google.com/file/d/1vgixuq9virFDDrc0KUwI1hA9a5COL2QS/preview",
-    tags: ["ParentZ", "TeenZ", "ChildZ"],
+    videoPortrait: true,
+    tags: ["TeenZ", "ChildZ"],
+    fib: "https://www.fourz.net/Operations/CensusDisplay?p=3231076041a4;Asia/Jakarta;HH:mm;en-US",
   },
 ];

@@ -1,6 +1,7 @@
 import React from "react";
 import "./InteractiveMap.css";
-import { Zone } from "../types";
+import { CensusMap, Zone } from "../types";
+import { getEstablishmentId, pickSoonest } from "../utils/census";
 
 interface Props {
   zones: Zone[];
@@ -9,6 +10,7 @@ interface Props {
   scale?: number;
   lang?: "id" | "en";
   highlightedZoneIds?: string[];
+  census?: CensusMap;
 }
 
 const InteractiveMap: React.FC<Props> = ({
@@ -18,6 +20,7 @@ const InteractiveMap: React.FC<Props> = ({
   onZoneClick,
   lang,
   highlightedZoneIds,
+  census,
 }) => {
   return (
     <div
@@ -30,22 +33,40 @@ const InteractiveMap: React.FC<Props> = ({
       {/* generate map. */}
       {/* {mapImage digunakan untuk switching antara lt1 dan lt2} */}
       <img src={mapImage} alt="Map" className="map-image" />
-      {zones.map((zone) => (
-        <button
-          key={zone.id}
-          className={`zone ${highlightedZoneIds?.includes(zone.id) ? "highlighted" : ""}`}
-          style={{
-            top: `${zone.top}%`,
-            left: `${zone.left}%`,
-            width: `${zone.width}%`,
-            height: `${zone.height}%`,
-          }}
-          onClick={() => onZoneClick(zone)}
-          title={zone.name}
-        >
-          {" "}
-        </button>
-      ))}
+      {zones.map((zone) => {
+        const establishmentId = getEstablishmentId(zone);
+        const activities = establishmentId
+          ? census?.[establishmentId]?.activities ?? []
+          : [];
+        const soonest = pickSoonest(activities);
+        return (
+          <button
+            key={zone.id}
+            className={`zone ${highlightedZoneIds?.includes(zone.id) ? "highlighted" : ""}`}
+            style={{
+              top: `${zone.top}%`,
+              left: `${zone.left}%`,
+              width: `${zone.width}%`,
+              height: `${zone.height}%`,
+            }}
+            onClick={() => onZoneClick(zone)}
+            title={zone.name}
+          >
+            {soonest && (
+              <span
+                className={`cycle-badge ${
+                  soonest.display === "Now" ? "cycle-now" : ""
+                }`}
+              >
+                {soonest.display}
+                {activities.length > 1 && (
+                  <span className="cycle-count">×{activities.length}</span>
+                )}
+              </span>
+            )}
+          </button>
+        );
+      })}
     </div>
   );
 };
