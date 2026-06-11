@@ -1,33 +1,65 @@
 import React, { useState } from "react";
 import "./SidePanel.css";
-import { EstablishmentCensus, Zone } from "../types";
+import { ActivityCycle, CensusMap, Zone } from "../types";
+import { getEstablishmentId, getSecondEstablishmentId } from "../utils/census";
 
 interface Props {
   zone: Zone | null;
-  census?: EstablishmentCensus | null;
+  census?: CensusMap;
   onClose: () => void;
 }
 
 const SidePanel: React.FC<Props> = ({ zone, census, onClose }) => {
   const [lang, setLang] = useState<"id" | "en">("id");
-  const [infoOpen, setInfoOpen] = useState(false);
-  const infoUrl = zone?.fib ?? "";
-  const hasInfo = Boolean(infoUrl);
+  const [infoUrl, setInfoUrl] = useState<string | null>(null);
 
   if (!zone) return null;
+
+  const infoLinks: { url: string; label: string }[] = [];
+  if (zone.fib) {
+    infoLinks.push({
+      url: zone.fib,
+      label: zone.fibLabel ?? "Open establishment info",
+    });
+  }
+  if (zone.fib2) {
+    infoLinks.push({ url: zone.fib2, label: zone.fib2Label ?? "Info 2" });
+  }
+  // When there are two links the first one needs a distinguishing label too.
+  if (infoLinks.length > 1 && !zone.fibLabel) {
+    infoLinks[0].label = "Info 1";
+  }
+
+  // Next-cycle timers, one group per establishment a zone draws from (fib + fib2).
+  const cycleGroups: { id: string; label?: string; activities: ActivityCycle[] }[] = [];
+  const primaryId = getEstablishmentId(zone);
+  const secondId = getSecondEstablishmentId(zone);
+  if (primaryId) {
+    cycleGroups.push({
+      id: primaryId,
+      label: zone.fibLabel,
+      activities: census?.[primaryId]?.activities ?? [],
+    });
+  }
+  if (secondId && secondId !== primaryId) {
+    cycleGroups.push({
+      id: secondId,
+      label: zone.fib2Label,
+      activities: census?.[secondId]?.activities ?? [],
+    });
+  }
+  const hasCycles = cycleGroups.some((g) => g.activities.length > 0);
 
   return (
     <>
       <div className="side-panel-backdrop" onClick={onClose} />
       <aside className="side-panel visible">
+        <div className="panel-scroll">
         <div className="panel-header">
           <div>
             <span className="panel-badge">Zone detail</span>
             <h2>{zone.name}</h2>
           </div>
-          <button className="close-btn" onClick={onClose}>
-            ×
-          </button>
         </div>
 
         <div className="lang-toggle">
@@ -45,39 +77,53 @@ const SidePanel: React.FC<Props> = ({ zone, census, onClose }) => {
           </button>
         </div>
 
-        <div className="info-action-bar">
-          <button
-            type="button"
-            className="info-button"
-            onClick={() => setInfoOpen(true)}
-            disabled={!hasInfo}
-          >
-            Open establishment info
-          </button>
-        </div>
+        {infoLinks.length > 0 && (
+          <div className="info-action-bar">
+            {infoLinks.map((link) => (
+              <button
+                key={link.url + link.label}
+                type="button"
+                className="info-button"
+                onClick={() => setInfoUrl(link.url)}
+              >
+                {link.label}
+              </button>
+            ))}
+          </div>
+        )}
 
-        {census && census.activities.length > 0 && (
+        {hasCycles && (
           <div className="section-block">
             <h3>Next cycles</h3>
-            <ul className="cycle-list">
-              {census.activities.map((activity, index) => (
-                <li
-                  key={activity.activityId ?? index}
-                  className="cycle-row"
-                >
-                  <span className="cycle-activity">
-                    {activity.name ?? "Activity"}
-                  </span>
-                  <span
-                    className={`cycle-pill ${
-                      activity.display === "Now" ? "cycle-now" : ""
-                    }`}
-                  >
-                    {activity.display}
-                  </span>
-                </li>
-              ))}
-            </ul>
+            {cycleGroups.map(
+              (group) =>
+                group.activities.length > 0 && (
+                  <div key={group.id} className="cycle-group">
+                    {group.label && (
+                      <h4 className="cycle-group-title">{group.label}</h4>
+                    )}
+                    <ul className="cycle-list">
+                      {group.activities.map((activity, index) => (
+                        <li
+                          key={activity.activityId ?? index}
+                          className="cycle-row"
+                        >
+                          <span className="cycle-activity">
+                            {activity.name ?? "Activity"}
+                          </span>
+                          <span
+                            className={`cycle-pill ${
+                              activity.display === "Now" ? "cycle-now" : ""
+                            }`}
+                          >
+                            {activity.display}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )
+            )}
           </div>
         )}
 
@@ -139,17 +185,20 @@ const SidePanel: React.FC<Props> = ({ zone, census, onClose }) => {
           </div>
         )}
 
+        </div>
+
         <div className="panel-footer">
-          <span>Tap outside the panel to close.</span>
-          <span>Swipe left on mobile.</span>
+          <button className="close-btn-bottom" onClick={onClose}>
+            Close
+          </button>
         </div>
       </aside>
 
-      {infoOpen && (
+      {infoUrl && (
         <>
           <div
             className="info-modal-backdrop"
-            onClick={() => setInfoOpen(false)}
+            onClick={() => setInfoUrl(null)}
           />
           <div className="info-modal visible">
             <div className="info-modal-header">
@@ -160,25 +209,19 @@ const SidePanel: React.FC<Props> = ({ zone, census, onClose }) => {
               <button
                 type="button"
                 className="modal-close"
-                onClick={() => setInfoOpen(false)}
+                onClick={() => setInfoUrl(null)}
               >
                 ×
               </button>
             </div>
             <div className="info-modal-body">
-              {hasInfo ? (
-                <iframe
-                  className="info-iframe"
-                  src={infoUrl}
-                  title={`${zone.name} info`}
-                  allowFullScreen
-                  loading="lazy"
-                />
-              ) : (
-                <div className="info-empty">
-                  <p>No external info is available for this zone.</p>
-                </div>
-              )}
+              <iframe
+                className="info-iframe"
+                src={infoUrl}
+                title={`${zone.name} info`}
+                allowFullScreen
+                loading="lazy"
+              />
             </div>
           </div>
         </>

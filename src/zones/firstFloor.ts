@@ -502,7 +502,7 @@ export const firstFloorZones: Zone[] = [
   },
   {
     id: "csi",
-    name: "UBS's Criminal Scene Investigation",
+    name: "UBS's Criminal Scene Investigation & Police Station",
     description: {
       id: "'Police Station' Kota KidZania membutuhkan seorang pahlawan! Kami mencari Polisi yang akan menjaga kota agar tetap aman. Kalian akan membantu mengendalikan kerumunan saat terjadi kebakaran di sebuah gedung. Kalian juga akan menyelidiki dan memecahkan kasus untuk menemukan tersangka. 'CSI' Ada perampokan di Toko Emas! Segera ke TKP untuk kumpulkan bukti. Kembali ke kantor dan analisis semua bukti untuk menyelesaikan kasus.",
       en: "'Police Station' KidZania city needs a hero! We are looking for an Officer who will keep the city safe. You will help control the crowd in the event of a fire in a nearby building. You will also investigate and solve a case to find the suspect. 'CSI' There's a robbery at a Gold Shop! You should go to the crime scene immediately! Collect evidence, go back to the office, then analyze all of the evidence to solve the case.",
@@ -519,6 +519,9 @@ export const firstFloorZones: Zone[] = [
     videoPortrait: true,
     tags: ["TeenZ", "ChildZ"],
     fib: "https://www.fourz.net/Operations/CensusDisplay?p=9bd0e47adcc6;Asia/Jakarta;HH:mm;en-US",
+    fib2: "https://www.fourz.net/Operations/CensusDisplay?p=77296c7252cb;Asia/Jakarta;HH:mm;en-US",
+    fibLabel: "Police Station",
+    fib2Label: "CSI",
   },
   {
     id: "university",
@@ -767,8 +770,8 @@ export const firstFloorZones: Zone[] = [
     id: "imigrasi",
     name: "Imigrasi",
     description: {
-      id: "Pengunjung dapat membeli foto - foto kenangan favorit selama kunjungan di KidZania",
-      en: "Visitors can purchase their favorite photo memories from their visit to KidZania.",
+      id: "Tempat keluar pengunjung untuk memasuki kota KidZania",
+      en: "Visitors' exit point to enter the city of KidZania.",
     },
 
     image: "establishment/Imigrasi.png",

@@ -4,16 +4,13 @@ import SidePanel from "./components/SidePanel";
 import { firstFloorZones } from "./zones/firstFloor";
 import { secondFloorZones } from "./zones/secondFloor";
 import { Zone } from "./types";
-import { getEstablishmentId, useCensus } from "./utils/census";
+import { useCensus } from "./utils/census";
 
 const App: React.FC = () => {
   const [selectedZone, setSelectedZone] = useState<Zone | null>(null);
   const [currentFloor, setCurrentFloor] = useState<1 | 2>(1);
   const [searchTerm, setSearchTerm] = useState("");
   const census = useCensus();
-  const selectedCensus = selectedZone
-    ? (census[getEstablishmentId(selectedZone) ?? ""] ?? null)
-    : null;
   const zones = currentFloor === 1 ? firstFloorZones : secondFloorZones;
   const mapImage = currentFloor === 1 ? "1ST FLOOR.png" : "2ND FLOOR.png";
   const normalizedSearch = searchTerm.trim().toLowerCase();
@@ -30,10 +27,10 @@ const App: React.FC = () => {
         <div className="topbar-title">
           <span className="eyebrow">KidZania Surabaya</span>
           <h1>Interactive Building Map</h1>
-          <p>Switch floors and tap a zone to view its details.</p>
+          <p>Switch floors and tap an establishment to view its details.</p>
         </div>
       </header>
-      <div className="map-container bg-white bg-opacity-10 backdrop-blur-sm rounded-lg p-4 shadow-xl mt-4">
+      <div className="map-stage bg-white bg-opacity-10 backdrop-blur-sm rounded-lg p-4 shadow-xl">
         <InteractiveMap
           zones={zones}
           mapImage={mapImage}
@@ -46,7 +43,7 @@ const App: React.FC = () => {
       {selectedZone && (
         <SidePanel
           zone={selectedZone}
-          census={selectedCensus}
+          census={census}
           onClose={() => setSelectedZone(null)}
         />
       )}

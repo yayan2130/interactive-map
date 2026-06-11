@@ -1,7 +1,7 @@
 import React from "react";
 import "./InteractiveMap.css";
 import { CensusMap, Zone } from "../types";
-import { getEstablishmentId, pickSoonest } from "../utils/census";
+import { getEstablishmentIds, pickSoonest } from "../utils/census";
 
 interface Props {
   zones: Zone[];
@@ -34,10 +34,9 @@ const InteractiveMap: React.FC<Props> = ({
       {/* {mapImage digunakan untuk switching antara lt1 dan lt2} */}
       <img src={mapImage} alt="Map" className="map-image" />
       {zones.map((zone) => {
-        const establishmentId = getEstablishmentId(zone);
-        const activities = establishmentId
-          ? census?.[establishmentId]?.activities ?? []
-          : [];
+        const activities = getEstablishmentIds(zone).flatMap(
+          (id) => census?.[id]?.activities ?? []
+        );
         const soonest = pickSoonest(activities);
         return (
           <button

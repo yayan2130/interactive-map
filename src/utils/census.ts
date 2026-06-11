@@ -2,29 +2,59 @@ import { useEffect, useState } from "react";
 import { ActivityCycle, CensusMap, Zone } from "../types";
 
 /**
- * From an establishment's activities, pick the one whose next cycle is soonest.
- * "Now" (nextCycleStartsAt === null) wins; otherwise smallest minutes.
+ * Choose the activity to summarize on the zone badge.
+ *
+ * A zone counts as free ("Now") only when EVERY activity is idle — no running
+ * cycle (nextCycleStartsAt === null, shown as "Now"). If any activity is mid-
+ * cycle we surface its countdown instead (the soonest one), so a "Now" badge
+ * always means the whole zone is open and never hides a session in progress.
  */
 export function pickSoonest(
   activities: ActivityCycle[]
 ): ActivityCycle | null {
   if (!activities.length) return null;
-  return [...activities].sort((a, b) => {
-    const av = a.nextCycleStartsAt === null ? -1 : a.minutesForTheNextCycle ?? Infinity;
-    const bv = b.nextCycleStartsAt === null ? -1 : b.minutesForTheNextCycle ?? Infinity;
-    return av - bv;
-  })[0];
+  const running = activities.filter((a) => a.nextCycleStartsAt !== null);
+  if (running.length === 0) return activities[0]; // all free -> "Now"
+  return running.reduce((soonest, a) =>
+    (a.minutesForTheNextCycle ?? Infinity) <
+    (soonest.minutesForTheNextCycle ?? Infinity)
+      ? a
+      : soonest
+  );
+}
+
+/** Pull the `p=<hex>` establishmentId out of a fib/CensusDisplay URL. */
+function parseEstablishmentId(url?: string): string | null {
+  const match = url?.match(/[?&]p=([0-9a-fA-F]+)/);
+  return match ? match[1] : null;
 }
 
 /**
- * Resolve a zone's establishmentId. Prefers the explicit `establishment_id`
- * field, falling back to the `p=<hex>` value embedded in the fib URL.
+ * Resolve a zone's primary establishmentId. Prefers the explicit
+ * `establishment_id` field, falling back to the `p=<hex>` value in the fib URL.
  */
 export function getEstablishmentId(zone: Zone | null): string | null {
   if (!zone) return null;
   if (zone.establishment_id) return zone.establishment_id;
-  const match = zone.fib?.match(/[?&]p=([0-9a-fA-F]+)/);
-  return match ? match[1] : null;
+  return parseEstablishmentId(zone.fib);
+}
+
+/** The second establishmentId for combined zones (from the `fib2` URL). */
+export function getSecondEstablishmentId(zone: Zone | null): string | null {
+  return parseEstablishmentId(zone?.fib2);
+}
+
+/**
+ * All distinct establishmentIds a zone draws census from (primary + fib2).
+ * Used to aggregate cycles for the map badge.
+ */
+export function getEstablishmentIds(zone: Zone | null): string[] {
+  const ids: string[] = [];
+  const primary = getEstablishmentId(zone);
+  if (primary) ids.push(primary);
+  const second = getSecondEstablishmentId(zone);
+  if (second && !ids.includes(second)) ids.push(second);
+  return ids;
 }
 
 /**

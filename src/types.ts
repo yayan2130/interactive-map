@@ -31,6 +31,9 @@ export interface Zone {
   video?: string;
   videoPortrait?: boolean;
   fib?: string;
+  fib2?: string;
+  fibLabel?: string;
+  fib2Label?: string;
   establishment_id?: string;
   tags?: string[];
 }

@@ -32,9 +32,11 @@ const xml = new XMLParser({
 // ---------------------------------------------------------------------------
 async function loadEstablishments() {
   const found = new Map(); // establishmentId -> zoneId
-  // Pair each zone's top-level `id` (4-space indent, to skip the nested
-  // description.id) with the `p=<hex>` establishmentId in its fib URL.
-  const re = /^ {4}id: ["']([^"']+)["'][\s\S]*?CensusDisplay\?p=([0-9a-fA-F]+)/gm;
+  // Anchor on each zone's top-level `id` (4-space indent, to skip the nested
+  // description.id), then collect EVERY `p=<hex>` in that zone's block — a
+  // combined zone can carry more than one (fib + fib2).
+  const idRe = /^ {4}id: ["']([^"']+)["']/gm;
+  const pRe = /CensusDisplay\?p=([0-9a-fA-F]+)/g;
   for (const file of ZONE_FILES) {
     let src;
     try {
@@ -42,9 +44,16 @@ async function loadEstablishments() {
     } catch {
       continue; // file may not exist (e.g. no second floor data yet)
     }
-    for (const m of src.matchAll(re)) {
-      const [, zoneId, establishmentId] = m;
-      if (!found.has(establishmentId)) found.set(establishmentId, zoneId);
+    const idMatches = [...src.matchAll(idRe)];
+    for (let i = 0; i < idMatches.length; i++) {
+      const zoneId = idMatches[i][1];
+      const start = idMatches[i].index;
+      const end = i + 1 < idMatches.length ? idMatches[i + 1].index : src.length;
+      const block = src.slice(start, end);
+      for (const pm of block.matchAll(pRe)) {
+        const establishmentId = pm[1];
+        if (!found.has(establishmentId)) found.set(establishmentId, zoneId);
+      }
     }
   }
   return [...found.entries()].map(([establishmentId, zoneId]) => ({

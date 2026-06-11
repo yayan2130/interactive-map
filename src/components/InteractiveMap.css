@@ -1,16 +1,20 @@
 .map-container {
   position: relative;
-  width: 100%;
-  max-width: 1000px;
+  /*
+   * Lock a constant aspect ratio so zone percentages map identically at every
+   * size. Width is the smaller of (available width) and (available height x
+   * aspect ratio), so the map always fits BOTH axes without cropping and the
+   * ratio is never broken by a max-* clamp.
+   */
   aspect-ratio: 414 / 621;
-  /* Keep zone % aligned */
-  margin: 2rem auto;
+  width: min(100%, calc((100vh - 8.25rem) * 414 / 621));
+  flex: 0 0 auto;
+  margin: 0 auto;
 }
 
 .map-image {
   position: absolute;
-  top: 0;
-  left: 0;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: contain;
