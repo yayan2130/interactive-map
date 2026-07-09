@@ -12,9 +12,11 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Install dependencies
+        shell: cmd
         run: npm ci
 
       - name: Build
+        shell: cmd
         run: npm run build
 
       - name: Deploy build to htdocs
