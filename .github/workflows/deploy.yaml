@@ -26,5 +26,5 @@ jobs:
 
       - name: Sync whole project to poller
         run: |
-          robocopy . C:\poller /MIR /XD .git node_modules dist /XF scraper\credentials.json start-poller.bat 
+          robocopy . C:\poller /MIR /XD .git node_modules dist /XF credentials.json start-poller.bat
           if ($LASTEXITCODE -ge 8) { exit 1 } else { exit 0 }
