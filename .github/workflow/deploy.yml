@@ -1,0 +1,28 @@
+name: Deploy Interactive Map
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    runs-on: self-hosted
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Deploy build to htdocs
+        run: |
+          robocopy dist C:\xampp\htdocs\interactive-map /MIR
+          if ($LASTEXITCODE -ge 8) { exit 1 } else { exit 0 }
+
+      - name: Sync whole project to poller
+        run: |
+          robocopy . C:\poller /MIR /XD .git node_modules dist /XF scraper\credentials.json start-poller.bat 
+          if ($LASTEXITCODE -ge 8) { exit 1 } else { exit 0 }

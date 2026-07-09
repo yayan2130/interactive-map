@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 - `npm run dev` — start the Vite dev server (`--host`, port 5173, exposed on LAN).
 - `npm run build` — production build. **Base path is hardcoded to `/interactive-map/`** (`vite build --base=/interactive-map/`); the app must be served from that sub-path or asset/`census.json` URLs break.
-- `npm run preview` — serve the production build locally.
+- `npm run preview` — serve the production build locally (also passes `--base=/interactive-map/`).
 - `npm run lint` — runs `eslint .`, but the repo currently ships **no project-level ESLint config** (no `.eslintrc.*` / `eslint.config.*` at the root), so the command no-ops/errors until one is added.
 - `npm run scrape:census` — run the census poller once.
 - `npm run scrape:census:watch` — poll forever (interval from `credentials.json`, default 60s). On Windows, `start-poller.bat` wraps this with node/credential sanity checks.
@@ -22,11 +22,11 @@ A single-page React 18 + TypeScript 4.9 + Vite 4 app (styled with Tailwind CSS 4
 [src/zones/firstFloor.ts](src/zones/firstFloor.ts) and [src/zones/secondFloor.ts](src/zones/secondFloor.ts) export arrays of `Zone` objects ([src/types.ts](src/types.ts)). Each zone is an absolutely-positioned clickable region over a floor PNG (`public/1ST FLOOR.png` / `public/2ND FLOOR.png`):
 
 - `top`/`left`/`width`/`height` are **percentages** of the map image, not pixels — [InteractiveMap.tsx](src/components/InteractiveMap.tsx) renders each zone as a `<button>` positioned with those percentages so the overlay scales with the image.
-- Descriptions are bilingual (`description.id` / `description.en`); [SidePanel.tsx](src/components/SidePanel.tsx) toggles between Indonesian and English.
+- Descriptions are bilingual (`description.id` / `description.en`); [SidePanel.tsx](src/components/SidePanel.tsx) toggles between Indonesian and English. Despite its name, `SidePanel` renders as a **centered popup modal** over a full-screen backdrop (see `SidePanel.css`), not a slide-in panel.
 - Images/videos referenced by zones (`image`, `activity`, `video`) live under `public/` (e.g. `public/establishment/...`) and are referenced by relative URL. Other optional `Zone` fields: `rotate`/`videoPortrait` (orientation hints), `tags`.
-- A zone can represent **two establishments at once** via `fib` + `fib2`, each with a display label (`fibLabel` / `fib2Label`, e.g. "Police Station" + "CSI"). Both feed census (see §2).
+- A zone can represent **two establishments at once** via `fib` + `fib2`, each with a display label (`fibLabel` / `fib2Label`, e.g. "Police Station" + "CSI"). Both feed census (see §2). In the panel these URLs open **in-app** in a nested iframe modal (`infoUrl` state in `SidePanel`), never as external navigation.
 
-[App.tsx](src/App.tsx) holds all top-level state: selected zone, current floor (1|2), and search term. Search filters zones by name and passes matching ids to `InteractiveMap` as `highlightedZoneIds`. Adding a zone = appending an object to the relevant floor array; no component changes needed.
+[App.tsx](src/App.tsx) holds all top-level state: selected zone, current floor (1|2), and search term. Search filters zones by name and passes matching ids to `InteractiveMap` as `highlightedZoneIds` — but note the search **input UI was removed** in the popup-modal redesign, so `searchTerm` is currently always empty and the highlight wiring (plus the `search-*`/`.zone.highlighted` CSS) is dormant until an input is re-added. Adding a zone = appending an object to the relevant floor array; no component changes needed.
 
 ### 2. Live census ("next cycle") data flows scraper → JSON → polling hook
 
@@ -54,7 +54,9 @@ The manifest `scope`/`start_url` derive from Vite `base`, so the `/interactive-m
 
 ### 4. Styling & responsive layout
 
-Styling is **Tailwind CSS** (`@tailwind base/components/utilities` in [src/index.css](src/index.css), wired through PostCSS via `@tailwindcss/postcss`). `index.css` also sets a fixed, full-bleed page background that swaps by viewport orientation: `public/map-bg.jpg` (landscape) and `public/map-bg-vertical.jpg` (portrait, via an `@media (orientation: portrait)` rule). The `--topbar-h` CSS variable reserves height for the floating topbar so the map's height budget stays deterministic.
+Styling is a mix: **Tailwind CSS** (`@tailwind base/components/utilities` in [src/index.css](src/index.css), wired through PostCSS via `@tailwindcss/postcss`) supplies utility classes used in `App.tsx`, while most component styling lives in plain CSS files — the bulk of the layout classes in `index.css`, plus [SidePanel.css](src/components/SidePanel.css) and [InteractiveMap.css](src/components/InteractiveMap.css). `index.css` also sets a fixed, full-bleed page background that swaps by viewport orientation: `public/map-bg.jpg` (landscape) and `public/map-bg-vertical.jpg` (portrait, via an `@media (orientation: portrait)` rule). The `--topbar-h` CSS variable reserves height for the floating topbar so the map's height budget stays deterministic.
+
+The page itself never scrolls: `html`/`body`/`#root`/`.app-container` are locked to `100vh` with `overflow: hidden` (the fix for the app-scrolling bug). The only scrollable region is `.panel-scroll` inside the zone-detail modal, so keep long content inside that wrapper.
 
 ### Secrets
 
