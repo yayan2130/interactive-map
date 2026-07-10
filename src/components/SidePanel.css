@@ -155,6 +155,48 @@
   border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
+.menu-image {
+  object-fit: contain;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* Floating hint pinned above the footer; panel-scroll hides it on first scroll */
+.scroll-hint {
+  position: absolute;
+  left: 50%;
+  bottom: 110px;
+  transform: translateX(-50%);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 1.1rem;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #5b7dff, #7dd3fc);
+  color: #08101f;
+  font-weight: 700;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 5;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.45);
+  animation: scroll-hint-bob 1.4s ease-in-out infinite;
+}
+
+.scroll-hint-arrow {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+@keyframes scroll-hint-bob {
+  0%,
+  100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(6px);
+  }
+}
+
 .video-container {
   position: relative;
   aspect-ratio: 16 / 9;

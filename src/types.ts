@@ -36,4 +36,5 @@ export interface Zone {
   fib2Label?: string;
   establishment_id?: string;
   tags?: string[];
+  menu?: string;
 }

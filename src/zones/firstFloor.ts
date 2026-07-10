@@ -88,6 +88,7 @@ export const firstFloorZones: Zone[] = [
     height: 7.5,
     activity: "activity/cafetaria.JPG",
     tags: ["ParentZ", "TeenZ", "ChildZ"],
+    menu: "menu/cafetaria.jpg",
   },
   {
     id: "culinary",
@@ -251,6 +252,7 @@ export const firstFloorZones: Zone[] = [
     videoPortrait: true,
     tags: ["ParentZ", "TeenZ", "ChildZ"],
     fib: "https://www.fourz.net/Operations/CensusDisplay?p=4f173e841927;Asia/Jakarta;HH:mm;en-US",
+    menu: "menu/pizzania.jpg",
   },
   {
     id: "kacamata",

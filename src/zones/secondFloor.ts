@@ -169,4 +169,20 @@ export const secondFloorZones: Zone[] = [
     tags: ["TeenZ", "ChildZ"],
     fib: "https://www.fourz.net/Operations/CensusDisplay?p=3231076041a4;Asia/Jakarta;HH:mm;en-US",
   },
+  {
+    id: "multipurpose",
+    name: "Multipurpose ",
+    description: {
+      id: "Pengunjung dapat Membeli makanan dan kudapan yang akan dinikmati di Multipurpose atau Main Square.",
+      en: "Visitors can buy meals and snacks to enjoy in the Multipurpose or Main Square.",
+    },
+    image: "establishment/Main Square.png",
+    top: 72,
+    left: 10.5,
+    width: 26.1,
+    height: 16.6,
+    activity: "activity/multipurpose.JPG",
+    tags: ["ParentZ", "TeenZ", "ChildZ"],
+    menu: "menu/cafetaria.jpg",
+  },
 ];

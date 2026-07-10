@@ -42,7 +42,7 @@ export default defineConfig({
         // Precache only the app shell. Floor maps + logo come in via includeAssets.
         globPatterns: ["**/*.{js,css,html,svg}", "1ST FLOOR.png", "2ND FLOOR.png", "kz-logo.png"],
         // Live data and the bulk image folders are NOT precached.
-        globIgnores: ["**/census.json", "**/establishment/**", "**/activity/**"],
+        globIgnores: ["**/census.json", "**/establishment/**", "**/activity/**", "**/menu/**"],
         navigateFallback: "index.html",
         navigateFallbackDenylist: [/census\.json/],
         runtimeCaching: [
@@ -53,7 +53,7 @@ export default defineConfig({
           },
           {
             // Zone images load and cache on demand as zones are visited.
-            urlPattern: /\/(establishment|activity)\/.*\.(png|jpe?g|webp)$/i,
+            urlPattern: /\/(establishment|activity|menu)\/.*\.(png|jpe?g|webp)$/i,
             handler: "CacheFirst",
             options: {
               cacheName: "zone-images",
