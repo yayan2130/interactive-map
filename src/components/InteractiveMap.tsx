@@ -51,15 +51,24 @@ const InteractiveMap: React.FC<Props> = ({
             onClick={() => onZoneClick(zone)}
             title={zone.name}
           >
-            {soonest && (
-              <span
-                className={`cycle-badge ${
-                  soonest.display === "Now" ? "cycle-now" : ""
-                }`}
-              >
-                {soonest.display}
-                {activities.length > 1 && (
-                  <span className="cycle-count">×{activities.length}</span>
+            {(soonest || zone.menu) && (
+              <span className="zone-badges">
+                {soonest && (
+                  <span
+                    className={`cycle-badge ${
+                      soonest.display === "Now" ? "cycle-now" : ""
+                    }`}
+                  >
+                    {soonest.display}
+                    {activities.length > 1 && (
+                      <span className="cycle-count">×{activities.length}</span>
+                    )}
+                  </span>
+                )}
+                {zone.menu && (
+                  <span className="fnb-badge" title="Menu available">
+                    <span className="fnb-icon" aria-hidden="true" />
+                  </span>
                 )}
               </span>
             )}

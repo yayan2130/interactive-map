@@ -31,11 +31,20 @@
   justify-content: center;
 }
 
-.cycle-badge {
+/* Row that pins the cycle timer + F&B badge above the zone. */
+.zone-badges {
   position: absolute;
   top: -8px;
   left: 50%;
   transform: translateX(-50%);
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.cycle-badge {
   display: inline-flex;
   align-items: center;
   gap: 2px;
@@ -46,9 +55,7 @@
   font-weight: 700;
   line-height: 1.4;
   white-space: nowrap;
-  pointer-events: none;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
-  z-index: 2;
 
   @media screen and (max-width: 2000px) {
     font-size: 9px;
@@ -64,6 +71,40 @@
 
 .cycle-badge.cycle-now {
   background: #0a66ff;
+}
+
+/* Black round badge with a gold F&B (fnb.svg) icon for zones that have a menu. */
+.fnb-badge {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: #111318;
+  border: 1px solid #d4af37;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+
+  @media screen and (max-width: 2000px) {
+    width: 16px;
+    height: 16px;
+  }
+  @media screen and (max-width: 1000px) {
+    width: 13px;
+    height: 13px;
+  }
+  @media screen and (max-width: 600px) {
+    width: 10px;
+    height: 10px;
+  }
+}
+
+/* fnb.svg ships with a hardcoded black fill, so paint it gold via a mask. */
+.fnb-icon {
+  width: 70%;
+  height: 70%;
+  background-color: #d4af37;
+  -webkit-mask: url("/fnb.svg") center / contain no-repeat;
+  mask: url("/fnb.svg") center / contain no-repeat;
 }
 
 .cycle-count {
